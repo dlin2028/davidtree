@@ -1,0 +1,6 @@
+c:\users\visitordl1\documents\visual studio 2015\Projects\DavidTree\DavidTree\bin\Debug\DavidTree.exe.config
+c:\users\visitordl1\documents\visual studio 2015\Projects\DavidTree\DavidTree\bin\Debug\DavidTree.exe
+c:\users\visitordl1\documents\visual studio 2015\Projects\DavidTree\DavidTree\bin\Debug\DavidTree.pdb
+c:\users\visitordl1\documents\visual studio 2015\Projects\DavidTree\DavidTree\obj\Debug\DavidTree.csprojResolveAssemblyReference.cache
+c:\users\visitordl1\documents\visual studio 2015\Projects\DavidTree\DavidTree\obj\Debug\DavidTree.exe
+c:\users\visitordl1\documents\visual studio 2015\Projects\DavidTree\DavidTree\obj\Debug\DavidTree.pdb
