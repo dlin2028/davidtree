@@ -18,5 +18,14 @@ namespace DavidTree
             LeftNode = leftNode;
             RightNode = rightNode;
         }
+
+        public bool hasChildren()
+        {
+            if(LeftNode == null && RightNode == null)
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }

@@ -58,47 +58,50 @@ namespace DavidTree
             }
         }
 
-        TreeNode<T> currentNode;
-        int counter = 0;
         public void PreOrder()
+        {
+            preOrder(top);
+        }
+        private void preOrder(TreeNode<T> currentNode)
         {
             if(currentNode == null)
             {
-                currentNode = top;
+                return;
             }
-            if(currentNode.LeftNode == null || currentNode.LeftNode.LeftNode != null)
-            {
-                Console.WriteLine(currentNode.Item);
-                counter++;
-                currentNode = currentNode.LeftNode;
-            }
-            else if(currentNode.RightNode == null)
-            {
-                Console.WriteLine(currentNode.Item);
-                counter++;
-                currentNode = top.RightNode;
-            }
-            else
-            {
-                Console.WriteLine(currentNode.Item);
-                counter++;
-                if (currentNode.LeftNode != null)
-                {
-                    Console.WriteLine(currentNode.LeftNode.Item);
-                    counter++;
-                }
-                currentNode = currentNode.RightNode;
-            }
-            
-            if(count >= counter)
-            {
-                PreOrder();
-            }
-            else
-            {
-                counter = 0;
-            }
+            Console.WriteLine(currentNode.Item);
+            preOrder(currentNode.LeftNode);
+            preOrder(currentNode.RightNode);
         }
 
+        public void PostOrder()
+        {
+            postOrder(top);
+        }
+        private void postOrder(TreeNode<T> currentNode)
+        {
+            if(currentNode == null)
+            {
+                return;
+            }
+            postOrder(currentNode.LeftNode);
+            postOrder(currentNode.RightNode);
+
+            Console.WriteLine(currentNode.Item);
+        }
+
+        public void InOrder()
+        {
+            inOrder(top);
+        }
+        private void inOrder(TreeNode<T> currentNode)
+        {
+            if (currentNode == null)
+            {
+                return;
+            }
+            inOrder(currentNode.LeftNode);
+            Console.WriteLine(currentNode.Item);
+            inOrder(currentNode.RightNode);
+        }
     }
 }
