@@ -10,3 +10,9 @@ C:\Users\David Lin\Documents\davidtree\DavidTree\bin\Debug\DavidTree.pdb
 C:\Users\David Lin\Documents\davidtree\DavidTree\obj\Debug\DavidTree.csprojResolveAssemblyReference.cache
 C:\Users\David Lin\Documents\davidtree\DavidTree\obj\Debug\DavidTree.exe
 C:\Users\David Lin\Documents\davidtree\DavidTree\obj\Debug\DavidTree.pdb
+C:\Users\DavidLin\Documents\davidtree\DavidTree\bin\Debug\DavidTree.exe.config
+C:\Users\DavidLin\Documents\davidtree\DavidTree\bin\Debug\DavidTree.exe
+C:\Users\DavidLin\Documents\davidtree\DavidTree\bin\Debug\DavidTree.pdb
+C:\Users\DavidLin\Documents\davidtree\DavidTree\obj\Debug\DavidTree.csprojResolveAssemblyReference.cache
+C:\Users\DavidLin\Documents\davidtree\DavidTree\obj\Debug\DavidTree.exe
+C:\Users\DavidLin\Documents\davidtree\DavidTree\obj\Debug\DavidTree.pdb

@@ -10,7 +10,7 @@ namespace DavidTree
     {
         static void Main(string[] args)
         {
-            DavidTree<string> tree = new DavidTree<string>();
+            DavidTree<int> tree = new DavidTree<int>();
             while(true)
             {
                 Console.WriteLine("Operation: ");
@@ -18,11 +18,11 @@ namespace DavidTree
 
                 if (operation == "lazy")
                 {
-                    tree.Insert("5");
-                    tree.Insert("3");
-                    tree.Insert("4");
-                    tree.Insert("7");
-                    tree.Insert("6");
+                    tree.Insert(5);
+                    tree.Insert(3);
+                    tree.Insert(4);
+                    tree.Insert(7);
+                    tree.Insert(6);
                 }
                 else if(operation == "inorder")
                 {
@@ -36,7 +36,7 @@ namespace DavidTree
                 {
                     tree.PostOrder();
                 }
-                else if(operation != "insert")
+                else if(operation != "insert" && operation != "search")
                 {
                     Console.WriteLine("Type help for help");
                 }
@@ -46,7 +46,11 @@ namespace DavidTree
                     string arguements = Console.ReadLine();
                     if(operation == "insert")
                     {
-                        tree.Insert(arguements);
+                        tree.Insert(int.Parse(arguements));
+                    }
+                    else if (operation == "search")
+                    {
+                        Console.WriteLine(tree.Search(int.Parse(arguements)).ToString());
                     }
                 }
             }
