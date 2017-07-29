@@ -9,6 +9,7 @@ namespace DavidTree
     class DavidTree <T> where T : IComparable<T>
     {
         static TreeNode<T> top;
+        private TreeNode<T> currentNode;
         int count;
 
         public DavidTree ()
@@ -26,7 +27,7 @@ namespace DavidTree
             }
             else
             {
-                TreeNode<T> currentNode = top;
+                currentNode = top;
 
                 while(true)
                 {
@@ -58,7 +59,71 @@ namespace DavidTree
             }
         }
 
-        TreeNode<T> currentNode;
+        public TreeNode<T> InsertRecursively(T item, TreeNode<T> currentNode = null)
+        {
+            if (currentNode == null)
+            {
+                if(top == null)
+                {
+                    top = new TreeNode<T>(item);
+                    return top;
+                }
+                return InsertRecursively(item, top);
+            }
+            else
+            {
+                if (item.CompareTo(currentNode.Item) > 0)
+                {
+                    if (currentNode.RightNode == null)
+                    {
+                        currentNode.RightNode = new TreeNode<T>(item);
+                        return top;
+                    }
+                    return InsertRecursively(item, currentNode.RightNode);
+                }
+                else
+                {
+                    if(currentNode.LeftNode == null)
+                    {
+                        currentNode.LeftNode = new TreeNode<T>(item);
+                        return top;
+                    }
+                    return InsertRecursively(item, currentNode.LeftNode);
+                }
+            }
+        }
+        public TreeNode<T> SearchRecursively(T item, TreeNode<T> currentNode = null)
+        {
+            if (currentNode == null)
+            {
+                return SearchRecursively(item, top);
+            }
+            else
+            {
+                if (item.CompareTo(currentNode.Item) > 0)
+                {
+                    if (currentNode.Item.Equals(item))
+                    {
+                        Console.WriteLine("found it");
+                        return top;
+                    }
+                    return SearchRecursively(item, currentNode.RightNode);
+                }
+                else
+                {
+                    if (currentNode.Item.Equals(item))
+                    {
+                        Console.WriteLine("found it");
+                        return top;
+                    }
+                    return SearchRecursively(item, currentNode.LeftNode);
+                }
+            }
+        }
+
+
+
+
         int counter = 0;
         public void PreOrder()
         {
