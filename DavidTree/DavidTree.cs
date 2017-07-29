@@ -21,44 +21,44 @@ namespace DavidTree
         public void Insert(T item)
         {
             count++;
+            insert(item, top);
+        }
+        private bool insert(T item, TreeNode<T> currentNode)
+        {
             if (top == null)
             {
                 top = new TreeNode<T>(item);
+                return true;
+            }
+            else if (currentNode == null)
+            {
+<<<<<<< HEAD
+                currentNode = top;
+=======
+                return true;
+            }
+>>>>>>> 9c4ac863231b67ca30a2d7a15d655bbe2ada0837
+
+            if(currentNode.Item.CompareTo(item) > 0)
+            {
+                if(insert(item, currentNode.LeftNode))
+                {
+                    currentNode.LeftNode = new TreeNode<T>(item);
+                    return false;
+                }
             }
             else
             {
-                currentNode = top;
-
-                while(true)
+                if (insert(item, currentNode.RightNode))
                 {
-                    if (currentNode.Item.CompareTo(item) > 0)
-                    {
-                        if (currentNode.LeftNode == null)
-                        {
-                            currentNode.LeftNode = new TreeNode<T>(item);
-                            break;
-                        }
-                        else
-                        {
-                            currentNode = currentNode.LeftNode;
-                        }
-                    }
-                    else
-                    {
-                        if (currentNode.RightNode == null)
-                        {
-                            currentNode.RightNode = new TreeNode<T>(item);
-                            break;
-                        }
-                        else
-                        {
-                            currentNode = currentNode.RightNode;
-                        }
-                    }
+                    currentNode.RightNode = new TreeNode<T>(item);
+                    return false;
                 }
             }
+            return true;
         }
 
+<<<<<<< HEAD
         public TreeNode<T> InsertRecursively(T item, TreeNode<T> currentNode = null)
         {
             if (currentNode == null)
@@ -126,44 +126,119 @@ namespace DavidTree
 
         int counter = 0;
         public void PreOrder()
+=======
+
+        public void Delete(T key)
+>>>>>>> 9c4ac863231b67ca30a2d7a15d655bbe2ada0837
+        {
+            TreeNode<T> nodeToDelete = Search(key);
+
+        }
+
+
+        public TreeNode<T> Maximum()
+        {
+            return maximum(top);
+        }
+        private TreeNode<T> maximum(TreeNode<T> currentNode)
+        {
+            if(maximum(currentNode) == null)
+            {
+                return currentNode;
+            }
+
+            return currentNode.RightNode;
+        }
+
+
+        public TreeNode<T> Minimum()
+        {
+            return minimum(top);
+        }
+        private TreeNode<T> minimum(TreeNode<T> currentNode)
+        {
+            if(minimum(currentNode) == null)
+            {
+                return currentNode;
+            }
+
+            return currentNode.LeftNode;
+        }
+
+
+        public TreeNode<T> Search(T key)
+        {
+            return search(key, top);
+        }
+        private TreeNode<T> search(T key, TreeNode<T> currentNode)
+        {
+            if (currentNode == null)
+            {
+                throw new Exception("node with key not found");
+            }
+            
+            if (currentNode.Item.CompareTo(key) > 0)
+            {
+                return search(key, currentNode.LeftNode);
+            }
+            else if(currentNode.Item.CompareTo(key) != 0)
+            {
+                return search(key, currentNode.RightNode);
+            }
+            else
+            {
+                return currentNode;
+            }
+            throw new Exception("How can you see this error? You should be dead by now!");
+        }
+
+
+        public void PreOrder()
+        {
+            preOrder(top);
+        }
+        private void preOrder(TreeNode<T> currentNode)
         {
             if(currentNode == null)
             {
-                currentNode = top;
+                return;
             }
-            if(currentNode.LeftNode == null || currentNode.LeftNode.LeftNode != null)
-            {
-                Console.WriteLine(currentNode.Item);
-                counter++;
-                currentNode = currentNode.LeftNode;
-            }
-            else if(currentNode.RightNode == null)
-            {
-                Console.WriteLine(currentNode.Item);
-                counter++;
-                currentNode = top.RightNode;
-            }
-            else
-            {
-                Console.WriteLine(currentNode.Item);
-                counter++;
-                if (currentNode.LeftNode != null)
-                {
-                    Console.WriteLine(currentNode.LeftNode.Item);
-                    counter++;
-                }
-                currentNode = currentNode.RightNode;
-            }
-            
-            if(count >= counter)
-            {
-                PreOrder();
-            }
-            else
-            {
-                counter = 0;
-            }
+            Console.WriteLine(currentNode.Item);
+            preOrder(currentNode.LeftNode);
+            preOrder(currentNode.RightNode);
         }
 
+
+        public void PostOrder()
+        {
+            postOrder(top);
+        }
+        private void postOrder(TreeNode<T> currentNode)
+        {
+            if(currentNode == null)
+            {
+                return;
+            }
+            postOrder(currentNode.LeftNode);
+            postOrder(currentNode.RightNode);
+
+            Console.WriteLine(currentNode.Item);
+        }
+
+
+        public void InOrder()
+        {
+            inOrder(top);
+        }
+        private void inOrder(TreeNode<T> currentNode)
+        {
+            if (currentNode == null)
+            {
+                return;
+            }
+            inOrder(currentNode.LeftNode);
+            Console.WriteLine(currentNode.Item);
+            inOrder(currentNode.RightNode);
+        }
     }
 }
